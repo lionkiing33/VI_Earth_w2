@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - CanBePickedUp
   layers:
   - Default
   - TransparentFX
@@ -15,8 +16,8 @@ TagManager:
   - 
   - 
   - Blocking
-  - 
-  - 
+  - Consumables
+  - Enemies
   - 
   - 
   - 
@@ -42,6 +43,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Ground
+    uniqueID: 986008907
+    locked: 0
+  - name: Objects
+    uniqueID: 4226215747
+    locked: 0
   - name: Characters
     uniqueID: 120671461
+    locked: 0
+  - name: Consumables
+    uniqueID: 1021471467
+    locked: 0
+  - name: Enemies
+    uniqueID: 922705615
     locked: 0
