@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: coin
   sprite: {fileID: 3906112111664580409, guid: 0aef8dd5bc4a2574db3406fed55a08b2, type: 3}
-  quantity: 0
-  stackable: 1
-  itemType: 0
+  location: "\uACF5\uC6D0"
+  content: "\uB3D9\uC804 \uC90D\uAE30"
+  max: 3
+  taskPoints: 1
+  isItUsable: 0
+  objectType: 0

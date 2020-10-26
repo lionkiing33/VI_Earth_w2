@@ -7,12 +7,14 @@ public class PlayerControllerScript : MonoBehaviour
     public Joystick joystick;   //조이스틱 스크립트
     public float MoveSpeed = 3.0f;     //플레이어 이동속도
 
+    public GameObject Map_Player, Player;
+
     Animator animator;
 
     string animationState = "AnimationState";
     Rigidbody2D rb2D;
 
-    private Vector3 _moveVector; //플레이어 이동벡터
+    private Vector3 _moveVector, Player_current_location, Player_before_location; //플레이어 이동벡터, 플레이어의 현재 위치
     private Transform _transform;
 
     enum CharStates
@@ -40,6 +42,8 @@ public class PlayerControllerScript : MonoBehaviour
 
     private void FixedUpdate()
     {
+
+        Player_before_location = Player.transform.position;
         //플레이어 이동
         Move();
         if (_moveVector.x > 0)
@@ -62,11 +66,36 @@ public class PlayerControllerScript : MonoBehaviour
         {
             animator.SetInteger(animationState, (int)CharStates.idleSouth);
         }
+
     }
 
     public void HandleInput()
     {
+        Player_current_location = Player.transform.position;
+
         _moveVector = PoolInput();
+        //Vector3 current_pos = Player.transform.position;
+        //Debug.Log(current_pos);
+        //Debug.Log(_moveVector);
+        //Debug.Log("현재의 위치 : " + Player_current_location);
+
+        if (_moveVector.x + Player_current_location.x == Player_current_location.x)
+        {
+            Map_Player.transform.Translate(0, _moveVector.y / 900, 0);
+        }
+        else if (Player_current_location.y < -4.45f)
+        {
+            Map_Player.transform.Translate(0, 0, 0);
+        }
+        else if (Player_before_location.y == Player_current_location.y && Player_before_location.x == Player_current_location.x)
+        {
+            Debug.Log("멈춰라");
+            Map_Player.transform.Translate(0, 0, 0);
+        }
+        else
+        {
+            Map_Player.transform.Translate(_moveVector.x / 1200, _moveVector.y / 900, 0);
+        }
     }
 
     public Vector3 PoolInput()

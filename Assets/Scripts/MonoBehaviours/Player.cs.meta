@@ -4,9 +4,9 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - hitPoints: {fileID: 11400000, guid: 18f12f80d83fdd94286a620d452b5975, type: 2}
-  - healthBarPrefab: {instanceID: 0}
-  - inventoryPrefab: {instanceID: 0}
+  - taskPoints: {fileID: 11400000, guid: 18f12f80d83fdd94286a620d452b5975, type: 2}
+  - taskBarPrefab: {instanceID: 0}
+  - tablePrefab: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
