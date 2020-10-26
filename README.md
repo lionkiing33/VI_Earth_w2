@@ -4,7 +4,7 @@ VI Earth의 8주차 프로젝트 진행 사항
 
 ![KakaoTalk_20201026_190214463](https://user-images.githubusercontent.com/54584364/97159289-f9139500-17bd-11eb-924c-fa3693f92459.jpg)
 
-[실행 영상](https://youtu.be/MMLoVl5BQ7c)
+[실행 영상](https://youtu.be/GmK19T4plcA)
 
 플레이어와 미션 오브젝트 사이 거리에 따른 UI변경
 - 저번주차에 플레이어가 미션 수행이 가능한 오브젝트에 접근할때 일정 거리에 따른 UI변화를 주어 플레이어에게 미션이 가능한 오브젝트인지 아닌지를 쉽게 확인할수있게끔 보여주었습니다.
