@@ -14,8 +14,6 @@ GameObject:
   - component: {fileID: 5128772778214720239}
   - component: {fileID: 1737344696064359844}
   - component: {fileID: 72235866623167205}
-  - component: {fileID: -7412719474187394305}
-  - component: {fileID: 7301416706416186559}
   m_Layer: 8
   m_Name: PlayerObject
   m_TagString: Player
@@ -168,38 +166,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystick: {fileID: 0}
-  MoveSpeed: 3
-  Map_Player: {fileID: 0}
-  Player: {fileID: 5252959881632397853}
---- !u!114 &-7412719474187394305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5252959881632397853}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8136e4085993a6e41b03f1b5e6246997, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 3
---- !u!114 &7301416706416186559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5252959881632397853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ded5c02a36113a448b67d017d680b55a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  taskPoints: {fileID: 11400000, guid: 65384ca6d49e6a840ab94706e97450ad, type: 2}
-  maxTaskPoints: 10
-  startingTaskPoints: 0
-  taskBarPrefab: {fileID: 3859001031678709874, guid: 74ec31664528aba4db2c14a7e33cdb3d,
-    type: 3}
-  directoryPrefab: {fileID: 9208313820440704406, guid: 8f191512b21c1ca4bbee43797e93a4c1,
-    type: 3}
+  miniPlayer: {fileID: 0}

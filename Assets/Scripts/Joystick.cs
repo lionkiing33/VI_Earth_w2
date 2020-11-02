@@ -53,4 +53,16 @@ public class Joystick : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointer
     {
         return inputVector.y;
     }
+
+    public void ActiveJoystick(bool active)
+    {
+        if(active)
+        {
+            this.gameObject.SetActive(true);
+        }
+        else
+        {
+            this.gameObject.SetActive(false);
+        }
+    }
 }

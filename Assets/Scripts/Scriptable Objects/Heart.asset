@@ -17,6 +17,6 @@ MonoBehaviour:
   location: "\uBCD1\uC6D0"
   content: "\uCE58\uB8CC \uBC1B\uAE30"
   max: 3
-  taskPoints: 1
+  taskPoints: 20
   isItUsable: 0
   objectType: 1

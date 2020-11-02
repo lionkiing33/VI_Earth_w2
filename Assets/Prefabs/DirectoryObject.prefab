@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3277af23e7632b442a8fdeec44640c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questPrefab: {fileID: 6811368673879278236, guid: 7720c329ba8335249bbcf2a244fd9a1f,
+  questPrefab: {fileID: 6811368673879278238, guid: 7720c329ba8335249bbcf2a244fd9a1f,
     type: 3}
   directoryButton: {fileID: 7469682247007003737}
   coin: {fileID: 11400000, guid: fafa1e8bc07271e40876d79fd67af163, type: 2}

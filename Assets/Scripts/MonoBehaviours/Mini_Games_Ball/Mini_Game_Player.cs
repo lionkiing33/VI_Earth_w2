@@ -5,37 +5,52 @@ using UnityEngine;
 public class Mini_Game_Player : MonoBehaviour
 {
     public int move_method;
-    public GameObject MiniGames_Panel, Player, Exit_Button, joystick;
+    public GameObject MiniGames_Panel, miniPlayer;
     public float speed;
     public Vector2 speed_vec;
+    Vector3 miniPlayerPos;
+
+    public InteractBtn interactBtn;
+    public Directory directory;
+    public TaskBar taskBar;
+    public GameObject joystick;
+
+    GameObject coin;
+
     // Start is called before the first frame update
     void Start()
     {
-        Exit_Button.SetActive(true);
+        //게임 시작 했을때 미니게임 플레이어의 좌표 초기화
+        miniPlayerPos = miniPlayer.gameObject.transform.position;
     }
-
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //충돌한 게임 오브젝트의 태그이름이 "Item"인 경우
         if (collision.CompareTag("Item"))
         {
-            Player.transform.position = new Vector3(-6.5f, -0.5f, 0);
-            Debug.Log("닿았음!");
+            //미니게임 패널 비활성화
             MiniGames_Panel.SetActive(false);
-            joystick.SetActive(true);
-        }
 
-        else if(collision.CompareTag("Enemy"))
+            coin = interactBtn.nearbyObject;
+
+            InteractObject paramObject = coin.gameObject.GetComponent<Interaction>().interactObject;
+            ClearMiniGame(paramObject);
+
+            //미니게임 플레이어의 좌표 초기화
+            miniPlayer.transform.position = miniPlayerPos;
+        }
+        //충돌한 게임 오브젝트의 태그이름이 "Enemy"인 경우
+        else if (collision.CompareTag("Enemy"))
         {
-            Player.transform.position = new Vector3(-6.5f,-0.5f,0);
-            Exit_Button.SetActive(true);
-            //수정해야할점. 빨간 원에 부딪히면 파란색 네모(플레이어)가 재생성되어야한다.
+            //미니게임 플레이어의 좌표 초기화
+            miniPlayer.transform.position = miniPlayerPos;
         }
     }
 
     // Update is called once per frame
     void Update()//방향키를 누르는 대로 움직인다.
     {
-        //수정해야할점. 플레이어가 움직일떄 해당 패널의 collider이외 외부의 collider까지 적용이된다.
         if (move_method == 0)
         {
             speed_vec = Vector2.zero;
@@ -59,7 +74,7 @@ public class Mini_Game_Player : MonoBehaviour
             transform.Translate(speed_vec);
         }
 
-        else if(move_method == 1) //관성의 법칙을 적용하기 떄문에 움직일 때 부드러움이 추가된다.
+        else if (move_method == 1) //관성의 법칙을 적용하기 떄문에 움직일 때 부드러움이 추가된다.
         {
             speed_vec.x = Input.GetAxis("Horizontal") * speed;
             speed_vec.y = Input.GetAxis("Vertical") * speed;
@@ -67,7 +82,7 @@ public class Mini_Game_Player : MonoBehaviour
             transform.Translate(speed_vec);
         }
 
-        else if(move_method == 2)
+        else if (move_method == 2)
         {
             speed_vec = Vector2.zero;
 
@@ -90,5 +105,16 @@ public class Mini_Game_Player : MonoBehaviour
 
             GetComponent<Rigidbody2D>().velocity = speed_vec;
         }
+    }
+
+    void ClearMiniGame(InteractObject taskObject)
+    {
+        if (directory.ModifyQuest(taskObject))
+        {
+            //인벤토리 내 해당 객체를 추가
+            taskBar.AdjustTaskPoints(taskObject.taskPoints);
+        }
+
+        joystick.SetActive(true);
     }
 }

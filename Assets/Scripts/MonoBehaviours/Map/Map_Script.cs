@@ -6,60 +6,34 @@ using UnityEngine.UI;
 
 public class Map_Script : MonoBehaviour
 {
-    public GameObject cube, Player, Map_Player;
-    public Vector3 pos;
+    public GameObject miniMap;
+    public GameObject player;
+    public GameObject miniPlayer;
+    Vector3 pos;
 
     void Start()
     {
-        cube.SetActive(false);
-        pos = this.Player.transform.position;
-        Debug.Log(pos);
-        Map_Player.transform.Translate(0,0,0);
-    }
-
-    public void Update()
-    {
+        //미니맵 비활성화
+        miniMap.SetActive(false);
+        //기존 플레이어의 좌표값을 저장합니다.
+        pos = player.transform.position;
+        //해당 미니맵 내 플레이어의 위치를 표현해 주는 미니플레이어의 좌표를 기존 플레이어의 위치와 동일하게 설정합니다.
+        miniPlayer.transform.position = pos;
     }
 
     public void Map_Button_OnMouseDown()
     {
-        if (cube.activeSelf == false)
+        //미니맵이 비활성화되어있습니다.
+        if (miniMap.activeSelf == false)
         {
-            Debug.Log("아무말1");
-            cube.SetActive(true);
+            //미니맵을 활성화합니다.
+            miniMap.SetActive(true);
         }
-        else if (cube.activeSelf == true)
+        //미니맵이 활성화되어있습니다
+        else if (miniMap.activeSelf == true)
         {
-            Debug.Log("아무말2");
-            cube.SetActive(false);
-        }
-    }
-    /*
-    public void OnMouseDown()
-    {
-        if (cube.activeSelf == false)
-        {
-            Debug.Log("아무말1");
-            cube.SetActive(true);
-            exit_button.SetActive(true);
-            visual_joystick.SetActive(false);
-        }
-        else
-        {
-            Debug.Log("아무말2");
-            cube.SetActive(false);
-            visual_joystick.SetActive(true);
+            //미니맵을 비활성화합니다.
+            miniMap.SetActive(false);
         }
     }
-    /*private void touch_enemy()
-    {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-        if (hit.collider != null)
-        {
-            Destroy(gameObject);
-        }
-    }*/
-
-
 }
